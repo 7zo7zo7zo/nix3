@@ -1,5 +1,6 @@
 {
 	description = "My NixOS/home-manager configurations";
+
 	inputs = {
 		nixpkgs.url = "nixpkgs/nixos-unstable";
 
@@ -10,8 +11,10 @@
 
 		import-tree.url = "github:vic/import-tree";
 
+		flake-aspects.url = "github:vic/flake-aspects";
+
 		home-manager = {
-			url = "github:nix-community/home-manager/release-26.05";
+			url = "github:nix-community/home-manager";
 			inputs.nixpkgs.follows = "nixpkgs";
 		};
 		dwm = {
@@ -29,6 +32,17 @@
 	};
 
 	outputs = inputs: inputs.flake-parts.lib.mkFlake { inherit inputs; } (inputs.import-tree ./modules);
+	/*
+	outputs = inputs:
+  inputs.flake-parts.lib.mkFlake { inherit inputs; } {
+    imports = [
+      inputs.flake-parts.flakeModules.modules
+			inputs.flake-aspects.flakeModule
+			inputs.home-manager.flakeModules.home-manager
+      (inputs.import-tree ./modules)
+    ];
+  };
+	*/
 }
 
 
