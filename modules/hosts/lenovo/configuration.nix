@@ -12,7 +12,8 @@
 					base
 					user
 					audio
-					printing	
+					printing
+					xdg
 				];
 
 				nixos = {
