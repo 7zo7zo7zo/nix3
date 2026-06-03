@@ -1,24 +1,36 @@
-{ inputs, ... }:
-
 {
 	flake.aspects.user =
 	{
-		nixos =
-			{pkgs, ...}:
-			{
+		nixos = {pkgs, config, lib, ...}: {
+			options.primaryUser = lib.mkOption {
+				type = lib.types.singleLineStr;
+				default = "";
+				description = "Primary user for this NixOS host";
+			};
+
+			config = {
 				programs.zsh.enable = true;
 
-				users.users.steve = {
+				users.users.${config.primaryUser} = {
 					isNormalUser = true;
-					home = "/home/steve";
+					home = "/home/${config.primaryUser}";
 					shell = pkgs.zsh;
 					extraGroups = [ "wheel" "audio" "video" ];
 				};
+			};
 		};
 
-		homeManager = {...}: {
-			home.username = "steve";
-			home.homeDirectory = "/home/steve";
+		homeManager = { config, lib, ... }: {
+			options.primaryUser = lib.mkOption {
+				type = lib.types.singleLineStr;
+				default = "";
+				description = "Primary user for this Home Manager profile";
+			};
+
+			config = {
+				home.username = "${config.primaryUser}";
+				home.homeDirectory = "/home/${config.primaryUser}";
+			};
 		};
 	};
 }
