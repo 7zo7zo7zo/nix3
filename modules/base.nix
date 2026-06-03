@@ -35,17 +35,17 @@
 			time.timeZone = "America/Los_Angeles";
 
 			# Allow unfree packages
-      nixpkgs.config.allowUnfree = true;
+			nixpkgs.config.allowUnfree = true;
 
 			# Enable flakes and nix command globally
-      nix.settings.experimental-features = [
-        "nix-command"
-        "flakes"
-      ];
+			nix.settings.experimental-features = [
+				"nix-command"
+				"flakes"
+			];
 
 			environment.systemPackages = with pkgs; [
 				vim
-				nvim
+				neovim
 				htop
 				file
 				psmisc # killall
