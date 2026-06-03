@@ -1,6 +1,6 @@
 {
 	flake.aspects.dotfiles.homeManager = { config, lib, ...}: let
-		dotfiles = "${config.home.homeDirectory}/nixos-config/config";
+		dotfiles = "${config.home.homeDirectory}/nixos-config/dotfiles";
 		create_symlink = path: config.lib.file.mkOutOfStoreSymlink path;
 	in {
 		options.my.dotfiles = lib.mkOption {

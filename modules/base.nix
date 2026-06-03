@@ -45,6 +45,7 @@
 
 			environment.systemPackages = with pkgs; [
 				vim
+				nvim
 				htop
 				file
 				psmisc # killall

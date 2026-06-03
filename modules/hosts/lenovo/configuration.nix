@@ -21,9 +21,11 @@
 					st
 					firefox
 					obsidian
+					mpv
+					nsxiv
 				];
 
-				nixos = {config, ...}: {
+				nixos = {config, pkgs, ...}: {
 					imports = [
 						./_hardware-configuration.nix
 						inputs.home-manager.nixosModules.home-manager
@@ -32,6 +34,12 @@
 					networking.hostName = "lenovo";
 					system.stateVersion = "25.11";
 					inherit primaryUser;
+
+					environment.systemPackages = with pkgs; [
+						pavucontrol
+					];
+
+					environment.localBinInPath = true;
 
 					home-manager = {
 						useGlobalPkgs = true;

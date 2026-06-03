@@ -25,8 +25,6 @@
 					dunst.enable = true;
 				};
 
-				environment.localBinInPath = true;
-
 				environment.systemPackages = with pkgs; [
 					dmenu
 					xclip
@@ -36,7 +34,6 @@
 					imagemagick
 					libnotify
 					xdotool
-					pavucontrol
 				];
 
 				fonts.packages = with pkgs; [
