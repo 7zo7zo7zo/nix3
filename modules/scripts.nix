@@ -1,6 +1,6 @@
 {
 	flake.aspects.scripts.homeManager = { config, lib, ... }: let
-		scriptsRoot = "${config.home.homeDirectory}/nc2/scripts";
+		scriptsRoot = "${config.home.homeDirectory}/nixos-config/scripts";
 		create_symlink = path: config.lib.file.mkOutOfStoreSymlink path;
 	in {
 		options.my.scripts = lib.mkOption {
