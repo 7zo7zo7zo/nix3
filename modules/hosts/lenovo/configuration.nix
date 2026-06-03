@@ -14,6 +14,7 @@
 					audio
 					printing	
 					xdg
+					st
 				];
 
 				nixos = {config, ...}: {
