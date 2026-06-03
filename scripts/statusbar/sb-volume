@@ -1,0 +1,12 @@
+#!/bin/sh
+
+MUTED=$(wpctl get-volume @DEFAULT_AUDIO_SINK@ | awk '{print $3}')
+VOLUMES=$(wpctl status | awk '/Sources:/{p=1}!p' | sed -n 's/.*vol: //p' | cut -d' ' -f1 | cut -d'[' -f1 | awk '{printf $1*100"%"}')
+
+if [ -z "$MUTED" ]; then
+	printf '󰕾'
+else
+	printf '󰖁'
+fi
+
+printf ' %s' "$VOLUMES"

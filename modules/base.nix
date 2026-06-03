@@ -34,24 +34,31 @@
 			# =========================================================================
 			time.timeZone = "America/Los_Angeles";
 
+			# Allow unfree packages
+      nixpkgs.config.allowUnfree = true;
+
+			# Enable flakes and nix command globally
+      nix.settings.experimental-features = [
+        "nix-command"
+        "flakes"
+      ];
+
 			environment.systemPackages = with pkgs; [
 				vim
-				neovim
-				alacritty
 				htop
 				file
-				psmisc
+				psmisc # killall
 				wget
 				curl
 				git
 				tree
 				fastfetch
-				usbutils
-				pciutils
+				usbutils # lsusb
+				pciutils # lspci
 				evtest
 				zip
 				unzip
-				#unrar
+				unrar
 				just
 			];
 

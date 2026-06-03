@@ -2,6 +2,7 @@
 	flake.aspects.xdg.homeManager = {
 		xdg = {
 			enable = true;
+			localBinInPath = true;
 
 			userDirs = {
 				enable = true;

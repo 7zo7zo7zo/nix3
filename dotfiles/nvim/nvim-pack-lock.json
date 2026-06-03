@@ -1,0 +1,41 @@
+{
+  "plugins": {
+    "LuaSnip": {
+      "rev": "642b0c595e11608b4c18219e93b88d7637af27bc",
+      "src": "https://github.com/L3MON4D3/LuaSnip",
+      "version": "2.0.0 - 3.0.0"
+    },
+    "blink.cmp": {
+      "rev": "5ee69ea52492fa038b3a1cd8de55edffe205c77d",
+      "src": "https://github.com/Saghen/blink.cmp"
+    },
+    "blink.indent": {
+      "rev": "15b3b25c2e76025733cc96df0144e9a9ef4d495c",
+      "src": "https://github.com/saghen/blink.indent"
+    },
+    "blink.lib": {
+      "rev": "2cb62890cee636fe46722d03b7b2331e54fb3755",
+      "src": "https://github.com/saghen/blink.lib"
+    },
+    "blink.pairs": {
+      "rev": "44ef9b9eb77cd5dfca471b6f7dc0ee74888626fb",
+      "src": "https://github.com/saghen/blink.pairs"
+    },
+    "kanagawa.nvim": {
+      "rev": "bb85e4bfc8d89b0e62c8fa53ccdd13d12e2f77b3",
+      "src": "https://github.com/rebelot/kanagawa.nvim"
+    },
+    "luasnip-latex-snippets.nvim": {
+      "rev": "53d96674d56f8489288e8db9b24c381d422e16a5",
+      "src": "https://github.com/evesdropper/luasnip-latex-snippets.nvim"
+    },
+    "nvim-highlight-colors": {
+      "rev": "e4c7af0211866162d999ce0bdd6a029302e19139",
+      "src": "https://github.com/brenoprata10/nvim-highlight-colors"
+    },
+    "vimtex": {
+      "rev": "24e229914182ff301496a3e2c4214b28c4928d3f",
+      "src": "https://github.com/lervag/vimtex"
+    }
+  }
+}

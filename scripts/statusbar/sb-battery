@@ -1,0 +1,23 @@
+#!/bin/sh
+
+BATTERY=BAT1
+CAPACITY=$(cat /sys/class/power_supply/$BATTERY/capacity)
+STATUS=$(cat /sys/class/power_supply/$BATTERY/status)
+
+get_icon() {
+	icons="$1"
+	i=0
+	for icon in $1; do
+		[ "$CAPACITY" -ge $((100 - i * 10)) ] && printf '%s' "$icon" && return
+		i=$((i + 1))
+	done
+	printf '%s' "$icon"
+}
+
+if [ "$STATUS" = 'Charging' ]; then
+	get_icon '󰂅 󰂋 󰂊 󰢞 󰂉 󰢝 󰂈 󰂇 󰂆 󰢜 󰢟' # 󰂅 is never used since $STATUS can't be 'Charging' when $CAPACITY is at 100%
+else
+	get_icon '󰁹 󰂂 󰂁 󰂀 󰁿 󰁾 󰁽 󰁼 󰁻 󰁺 󰂎'
+fi
+
+printf " %d%%" "$CAPACITY"

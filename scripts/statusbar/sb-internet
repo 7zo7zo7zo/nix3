@@ -1,0 +1,12 @@
+#!/bin/sh
+
+ETHERNET=$(cat /sys/class/net/en*/operstate)
+WIFI=$(cat /sys/class/net/wl*/operstate)
+
+if [ "$ETHERNET" = 'up' ]; then
+	printf '󰈀'
+elif [ "$WIFI" = 'up' ]; then
+	printf '󰖩'
+else
+	printf '󰖪'
+fi

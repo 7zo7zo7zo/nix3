@@ -1,0 +1,18 @@
+#!/bin/sh
+
+MUTED=$(wpctl get-volume @DEFAULT_AUDIO_SOURCE@ | awk '{print $3}')
+IN_USE=$(wpctl status | awk '/Video/{p=1}!p' | grep 'input_')
+
+if [ -z "$MUTED" ]; then
+	if [ -z "$IN_USE" ]; then
+		printf '󰍬'
+	else
+		printf 'In use! 󰍬'
+	fi
+else
+	if [ -z "$IN_USE" ]; then
+		printf '󰍭'
+	else
+		printf 'Trying to use! 󰍭'
+	fi
+fi
