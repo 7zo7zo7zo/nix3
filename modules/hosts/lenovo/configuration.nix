@@ -2,21 +2,21 @@
 
 {
 	flake = {
-		aspects =
-		{ aspects, ... }:
-		{
-			host-lenovo = {
+		aspects = { aspects, ... }: {
+			host-lenovo = let
+				primaryUser = "steve";
+			in {
 				description = "Configuration for my Lenovo IdeaPad 130-15AST";
 
 				includes = with aspects; [
 					base
 					user
 					audio
-					printing
+					printing	
 					xdg
 				];
 
-				nixos = {
+				nixos = {config, ...}: {
 					imports = [
 						./_hardware-configuration.nix
 						inputs.home-manager.nixosModules.home-manager
@@ -24,12 +24,13 @@
 
 					networking.hostName = "lenovo";
 					system.stateVersion = "25.11";
+					inherit primaryUser;
 
 					home-manager = {
 						useGlobalPkgs = true;
 						useUserPackages = true;
 
-						users.steve = {
+						users.${config.primaryUser} = {
 							imports = [ aspects.host-lenovo.modules.homeManager ];
 						};
 					};
@@ -37,6 +38,7 @@
 
 				homeManager = {
 					home.stateVersion = "25.11";
+					inherit primaryUser;
 				};
 			};
 		};
