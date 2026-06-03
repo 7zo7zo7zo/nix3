@@ -11,10 +11,16 @@
 				includes = with aspects; [
 					base
 					user
+					zsh
+					dwm
 					audio
+					bluetooth
 					printing	
 					xdg
+					nvim
 					st
+					firefox
+					obsidian
 				];
 
 				nixos = {config, ...}: {
