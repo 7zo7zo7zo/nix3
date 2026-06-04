@@ -10,9 +10,10 @@
 			];
 
 			buildInputs = with pkgs; [
-				xorg.libX11
-				xorg.libXft
-				xorg.libXinerama
+				# suckless
+				libX11
+				libXft
+				libXinerama
 			];
 		};
 	};
