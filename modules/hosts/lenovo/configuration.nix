@@ -23,6 +23,9 @@
 					obsidian
 					mpv
 					nsxiv
+					zathura
+					tmux
+					nnn
 				];
 
 				nixos = {config, pkgs, ...}: {
@@ -35,9 +38,6 @@
 					system.stateVersion = "25.11";
 					inherit primaryUser;
 
-					environment.systemPackages = with pkgs; [
-						pavucontrol
-					];
 
 					environment.localBinInPath = true;
 
@@ -51,9 +51,24 @@
 					};
 				};
 
-				homeManager = {
+				homeManager = { pkgs, ... }: {
 					home.stateVersion = "25.11";
 					inherit primaryUser;
+
+					home.packages = with pkgs; [
+						pavucontrol
+						# gimp
+						# krita
+						# screenkey
+					];
+
+					home.sessionVariables = {
+						TERMINAL = "st";
+						BROWSER = "firefox";
+						EDITOR = "nvim";
+						VISUAL = "nvim";
+						PAGER = "less";
+					};
 				};
 			};
 		};

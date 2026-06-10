@@ -67,7 +67,7 @@
 				};
 
 				programs.zsh.enable = true;
-				programs.zsh.profileExtra = ''
+				programs.zsh.loginExtra = ''
 					if [[ "$(tty)" = "/dev/tty1" ]]; then
 						pgrep dwm || startx "$XINITRC"
 					fi

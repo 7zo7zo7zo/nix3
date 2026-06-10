@@ -15,9 +15,6 @@
 					file = "share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh";
 				}
 			];
-			shellAliases = {
-				nrs = "sudo nixos-rebuild switch --flake";
-			};
 			enableCompletion = false;
 			initContent = ''
 				autoload -U colors && colors
@@ -41,10 +38,6 @@
 
 				PROMPT='%F{green}%n@%m%f:%F{cyan}%1~%f%F{yellow}''${vcs_info_msg_0_} %f> '
 			'';
-		};
-		home.sessionVariables = {
-			BROWSER = "firefox";
-			EDITOR = "nvim";
 		};
 		xdg.cacheFile."zsh/.keep".text = "";
 	};
