@@ -26,6 +26,7 @@
 					zathura
 					tmux
 					nnn
+					syncthing
 				];
 
 				nixos = {config, pkgs, ...}: {
