@@ -27,6 +27,7 @@
 					tmux
 					nnn
 					syncthing
+					fastfetch
 				];
 
 				nixos = {config, pkgs, ...}: {

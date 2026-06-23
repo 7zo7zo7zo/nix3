@@ -53,7 +53,6 @@
 				curl
 				git
 				tree
-				fastfetch
 				usbutils # lsusb
 				pciutils # lspci
 				evtest

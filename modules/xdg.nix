@@ -28,6 +28,10 @@
 					"video/quicktime" = "mpv.desktop";
 					"video/mp4" = "mpv.desktop";
 					"video/webm" = "mpv.desktop";
+
+					"inode/directory" = "nnn.desktop";
+					"application/zip" = "nnn.desktop";
+					"application/x-zip-compressed" = "nnn.desktop";
 				};
 			};
 		};

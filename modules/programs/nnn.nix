@@ -1,7 +1,7 @@
 {
 	flake.aspects = { aspects, ... }: {
 		nnn = {
-			includes = with aspects; [ tmux ];
+			includes = with aspects; [ tmux xdg ];
 
 			homeManager = { pkgs, lib, ... }: {
 				programs.nnn = {
@@ -32,7 +32,21 @@
 				];
 
 				home.shellAliases = {
-					n = ''tmux new-session "nnn -Aa -P p ~"'';
+					n = "tmux new-session -- nnn -Aa -P p";
+				};
+
+				xdg.desktopEntries.nnn = {
+					name = "nnn";
+					genericName = "File Manager";
+					exec = ''st -e tmux new-session -- nnn -Aa -P p %f'';
+					terminal = false;
+					noDisplay = true;
+					mimeType = [
+						"inode/directory"
+						"application/zip"
+						"application/x-zip-compressed"
+					];
+					categories = [ "Utility" "FileManager" "System" "FileTools" ];
 				};
 			};
 		};
