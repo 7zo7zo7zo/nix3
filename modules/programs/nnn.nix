@@ -36,14 +36,14 @@
 				];
 
 				home.shellAliases = {
-					n = "tmux new-session -- nnn -Aa -P p";
+					n = "tmux new-session -- nnn -Aae -P p";
 				};
 
 				xdg.desktopEntries.nnn = {
 					name = "nnn";
 					genericName = "File Manager";
-					exec = ''st -e tmux new-session -- nnn -Aa -P p %f'';
-					terminal = false;
+					exec = ''tmux new-session -- nnn -Aae -P p %f'';
+					terminal = true;
 					noDisplay = true;
 					mimeType = [
 						"inode/directory"

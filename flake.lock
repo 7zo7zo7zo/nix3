@@ -3,11 +3,11 @@
     "dwm": {
       "flake": false,
       "locked": {
-        "lastModified": 1782257025,
-        "narHash": "sha256-N3zplVaIpFpw5odeucHRnQoLWuNd303xuNm0xj0lhCs=",
+        "lastModified": 1782295408,
+        "narHash": "sha256-CRAtc2TPH4hTrfi5tvZ7rfMwRcWcNiPbHctKNDuT1tA=",
         "owner": "7zo7zo7zo",
         "repo": "dwm-temp",
-        "rev": "a2497832fa4f4910d1288d3ecc4bb04a36ee89cf",
+        "rev": "6c5ec18b429e864bdfbfee282d4a6e2cbdf056f4",
         "type": "github"
       },
       "original": {

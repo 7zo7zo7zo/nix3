@@ -10,6 +10,15 @@
 				createDirectories = true;
 			};
 
+			terminal-exec = {
+				enable = true;
+				settings = {
+					default = [
+						"st.desktop"
+					];
+				};
+			};
+
 			mimeApps = {
 				enable = true;
 				defaultApplications = {
@@ -36,7 +45,10 @@
 					"text/html" = "firefox.desktop";
 					"application/xhtml+xml" = "firefox.desktop";
 					"x-scheme-handler/http" = "firefox.desktop";
-  					"x-scheme-handler/https" = "firefox.desktop";
+					"x-scheme-handler/https" = "firefox.desktop";
+
+					"text/markdown" = "nvim.desktop";
+					"text/x-markdown" = "nvim.desktop";
 				};
 			};
 		};
