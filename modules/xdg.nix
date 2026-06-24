@@ -32,6 +32,11 @@
 					"inode/directory" = "nnn.desktop";
 					"application/zip" = "nnn.desktop";
 					"application/x-zip-compressed" = "nnn.desktop";
+
+					"text/html" = "firefox.desktop";
+					"application/xhtml+xml" = "firefox.desktop";
+					"x-scheme-handler/http" = "firefox.desktop";
+  					"x-scheme-handler/https" = "firefox.desktop";
 				};
 			};
 		};
