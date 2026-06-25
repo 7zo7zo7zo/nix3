@@ -1,7 +1,7 @@
 # My NixOS Configuration
 My dendritic NixOS config
 
-Inspired by:
+## Inspired by:
 https://github.com/ebadfd/nix-config
 
 https://github.com/Linuxury/nixos-config
