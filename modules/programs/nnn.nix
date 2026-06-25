@@ -50,7 +50,7 @@
 						"application/zip"
 						"application/x-zip-compressed"
 					];
-					categories = [ "Utility" "FileManager" "System" "FileTools" ];
+					categories = [ "System" "FileTools" "FileManager" "ConsoleOnly" ];
 				};
 			};
 
