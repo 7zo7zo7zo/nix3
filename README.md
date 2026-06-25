@@ -1,4 +1,10 @@
 # My NixOS Configuration
+My dendritic NixOS config
+
+Inspired by:
+https://github.com/ebadfd/nix-config
+https://github.com/Linuxury/nixos-config
+https://github.com/DoctorDalek1963/nixos-config
 
 ## Installation
 ```bash
