@@ -36,12 +36,20 @@
 						inputs.home-manager.nixosModules.home-manager
 					];
 
-					networking.hostName = "lenovo";
-					system.stateVersion = "25.11";
-					inherit primaryUser;
+					services.udev.extraRules = ''
+						ACTION=="add", SUBSYSTEM=="platform", KERNEL=="PNP0C0D:00", DRIVER=="acpi-button", \
+						RUN+="${pkgs.runtimeShell} -c 'echo PNP0C0D:00 > /sys/bus/platform/drivers/acpi-button/unbind && echo PNP0C0D:01 > /sys/bus/platform/drivers/acpi-button/bind'"
+					'';
+
+					services.udisks2.enable = true;
+
 
 
 					environment.localBinInPath = true;
+
+					networking.hostName = "lenovo";
+					system.stateVersion = "25.11";
+					inherit primaryUser;
 
 					home-manager = {
 						useGlobalPkgs = true;
@@ -63,6 +71,11 @@
 						# krita
 						# screenkey
 					];
+
+					services.udiskie = {
+						enable = true;
+					};
+
 
 					home.sessionVariables = {
 						TERMINAL = "st";

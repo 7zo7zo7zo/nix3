@@ -42,6 +42,35 @@
 				fonts.packages = with pkgs; [
 					nerd-fonts.jetbrains-mono
 				];
+
+				# Some programs need SUID wrappers, can be configured further or are
+				# started in user sessions.
+				/*
+				programs.mtr.enable = true;
+				programs.gnupg.agent = {
+					enable = true;
+					enableSSHSupport = true;
+				};
+				*/
+
+				programs.slock.enable = true;
+
+				programs.xss-lock = {
+					enable = true;
+					lockerCommand = "/run/wrappers/bin/slock";
+					extraOptions = [
+						"--transfer-sleep-lock"
+					];
+				};
+
+				services.logind.settings.Login = {
+					HandleLidSwitch = "suspend";
+					HandleLidSwitchExternalPower = "suspend";
+					HandleLidSwitchDocked = "suspend";
+
+    			IdleAction = "suspend";
+    			IdleActionSec = "10min";
+  			};
 			};
 
 			homeManager = { config, ... }: {

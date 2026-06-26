@@ -1,13 +1,27 @@
 {
 	flake.aspects = { aspects, ... }: {
 		nnn = {
-			includes = with aspects; [ tmux xdg ];
+			includes = with aspects; [
+				tmux
+				xdg
+				#scripts
+			];
 
 			homeManager = { pkgs, lib, ... }: {
+				my.scripts = [ "f" ];
+
 				programs.nnn = {
 					enable = true;
 					package = pkgs.nnn.override {
 						withNerdIcons = true;
+					};
+					quitcd = true;
+					bookmarks = {
+						d = "~/Documents";
+						D = "~/Downloads";
+						p = "~/Pictures";
+						v = "~/Videos";
+						m = "/run/media/steve";
 					};
 					plugins = {
 						src = (pkgs.fetchFromGitHub {
@@ -35,14 +49,10 @@
 					glow
 				];
 
-				home.shellAliases = {
-					n = "tmux new-session -- nnn -Aae -P p";
-				};
-
 				xdg.desktopEntries.nnn = {
 					name = "nnn";
 					genericName = "File Manager";
-					exec = ''tmux new-session -- nnn -Aae -P p %f'';
+					exec = "f %f";
 					terminal = true;
 					noDisplay = true;
 					mimeType = [
@@ -52,10 +62,11 @@
 					];
 					categories = [ "System" "FileTools" "FileManager" "ConsoleOnly" ];
 				};
-			};
 
-			home.sessionVariables = {
-				NNN_ARCHIVE = "\\.(7z|a|ace|alz|arc|arj|bz|bz2|cab|cpio|deb|gz|jar|lha|lz|lzh|lzma|lzo|rar|rpm|rz|t7z|tar|tbz|tbz2|tgz|tlz|txz|tZ|tzo|war|xpi|xz|Z|zip)$";
+				home.sessionVariables = {
+					NNN_ARCHIVE = "\\.(7z|a|ace|alz|arc|arj|bz|bz2|cab|cpio|deb|gz|jar|lha|lz|lzh|lzma|lzo|rar|rpm|rz|t7z|tar|tbz|tbz2|tgz|tlz|txz|tZ|tzo|war|xpi|xz|Z|zip)$";
+					NNN_TERMINAL = "st";
+				};
 			};
 		};
 	};
