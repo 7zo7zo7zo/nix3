@@ -1,0 +1,2 @@
+#!/bin/sh
+exec "$SHELL" -ic 'n -Aa "$1"; exec "$SHELL" -i' _ "$1"
