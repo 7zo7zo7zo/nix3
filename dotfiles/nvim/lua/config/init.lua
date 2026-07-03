@@ -1,5 +1,6 @@
 vim.g.mapleader = " "
 vim.g.localleader = " "
+vim.opt_local.timeoutlen = 150
 
 require("config.options")
 require("config.plugins")
