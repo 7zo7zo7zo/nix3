@@ -12,7 +12,6 @@
 					base
 					user
 					zsh
-					drives
 					dwm
 					audio
 					bluetooth
@@ -37,14 +36,25 @@
 						inputs.home-manager.nixosModules.home-manager
 					];
 
+					# Fix broken and duplicate Lid Switch and Power Button -- TODO: fix Power Button better (still shows up on evtest)
 					services.udev.extraRules = ''
 						ACTION=="add", SUBSYSTEM=="platform", KERNEL=="PNP0C0D:00", DRIVER=="acpi-button", \
 						RUN+="${pkgs.runtimeShell} -c 'echo PNP0C0D:00 > /sys/bus/platform/drivers/acpi-button/unbind && echo PNP0C0D:01 > /sys/bus/platform/drivers/acpi-button/bind'"
+
+						SUBSYSTEM=="input", KERNELS=="PNP0C0C:00", TAG-="power-switch"
 					'';
 
+					services.picom = {
+						enable = true;
+						backend = "xrender";
+						vSync = true;
+
+						fade = false;
+						shadow = false;
+						inactiveOpacity = 1.0;
+					};
+
 					services.udisks2.enable = true;
-
-
 
 					environment.localBinInPath = true;
 

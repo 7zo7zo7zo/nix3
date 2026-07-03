@@ -21,7 +21,8 @@
 						D = "~/Downloads";
 						p = "~/Pictures";
 						v = "~/Videos";
-						m = "/run/media/steve";
+						m = "/mnt";
+						M = "/run/media/steve"; # TODO: make it so steve is not hardcoded
 					};
 					plugins = {
 						src = (pkgs.fetchFromGitHub {

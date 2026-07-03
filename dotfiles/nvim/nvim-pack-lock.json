@@ -29,9 +29,17 @@
       "rev": "53d96674d56f8489288e8db9b24c381d422e16a5",
       "src": "https://github.com/evesdropper/luasnip-latex-snippets.nvim"
     },
+    "nnn.nvim": {
+      "rev": "efe690293eee87558f034a83ed96157e52639cdb",
+      "src": "https://github.com/luukvbaal/nnn.nvim"
+    },
     "nvim-highlight-colors": {
       "rev": "e4c7af0211866162d999ce0bdd6a029302e19139",
       "src": "https://github.com/brenoprata10/nvim-highlight-colors"
+    },
+    "nvim-web-devicons": {
+      "rev": "dad71387de386a946b123079d0e53f23028f3abd",
+      "src": "https://github.com/nvim-tree/nvim-web-devicons"
     },
     "vimtex": {
       "rev": "24e229914182ff301496a3e2c4214b28c4928d3f",

@@ -24,10 +24,40 @@
 							};
 						};
 					};
-					picom.enable = true;
 					dunst.enable = true;
 				};
 
+				# Automatic Locking and Suspending -- TODO: fix hacks, probably should move latop stuff elsewhere
+				services.logind.settings.Login = {
+					HandleLidSwitch = "suspend";
+					HandleLidSwitchExternalPower = "suspend";
+					HandleLidSwitchDocked = "ignore";
+
+					HandlePowerKey = "suspend";
+					HandlePowerKeyLongPress = "poweroff";
+				};
+
+				programs.slock.enable = true;
+
+				programs.xss-lock = {
+					enable = true;
+					lockerCommand = "/run/wrappers/bin/slock";
+					extraOptions = [
+						"--transfer-sleep-lock"
+					];
+				};
+
+				services.xserver.xautolock = rec {
+					enable = true;
+					time = 9;
+					locker = "/run/current-system/systemd/bin/systemctl suspend";
+					notify = 30;
+					enableNotifier = true;
+					notifier = "${pkgs.libnotify}/bin/notify-send \"Suspending in ${toString notify} seconds\"";
+					extraOptions = [ "-detectsleep" ];
+				};
+
+				# Dependencies (pkgs)
 				environment.systemPackages = with pkgs; [
 					dmenu
 					xclip
@@ -53,24 +83,6 @@
 				};
 				*/
 
-				programs.slock.enable = true;
-
-				programs.xss-lock = {
-					enable = true;
-					lockerCommand = "/run/wrappers/bin/slock";
-					extraOptions = [
-						"--transfer-sleep-lock"
-					];
-				};
-
-				services.logind.settings.Login = {
-					HandleLidSwitch = "suspend";
-					HandleLidSwitchExternalPower = "suspend";
-					HandleLidSwitchDocked = "suspend";
-
-    			IdleAction = "suspend";
-    			IdleActionSec = "10min";
-  			};
 			};
 
 			homeManager = { config, ... }: {
@@ -92,7 +104,7 @@
 						fi
 
 						# Fix Java applications not rendering correctly on DWM
-            			export _JAVA_AWT_WM_NONREPARENTING=1
+            export _JAVA_AWT_WM_NONREPARENTING=1
 
 						dwmblocks &
 					'';
