@@ -7,14 +7,14 @@
 			fsType = "exfat";
 			options = [
 				"nofail"
-					"x-systemd.automount"
-					"x-systemd.device-timeout=5s"
+				"x-systemd.automount"
+				"x-systemd.device-timeout=5s"
 
-					# Make exFAT files owned by your normal user.
-					# Verify with `id`, but these are common on NixOS:
-					"uid=1000"
-					"gid=100"
-					"umask=0022"
+				# Make exFAT files owned by your normal user
+				# Verify with `id`
+				"uid=1000"
+				"gid=100"
+				"umask=0022"
 			];
 		};
 
