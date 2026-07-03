@@ -12,6 +12,7 @@
 					base
 					user
 					zsh
+					drives
 					dwm
 					audio
 					bluetooth
