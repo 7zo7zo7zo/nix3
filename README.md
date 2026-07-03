@@ -5,17 +5,19 @@ My dendritic NixOS config
 - https://github.com/ebadfd/nix-config
 - https://github.com/Linuxury/nixos-config
 - https://github.com/DoctorDalek1963/nixos-config
+- https://github.com/BreadOnPenguins/scripts
+- https://tduyng.com (neovim)
 
 ## Installation
 ```bash
 sudo -i
 
-# Partition Disk
+# Partition Disk (specific to you)
 lsblk
 cfdisk /dev/sdXXX
 lsblk
 
-# Format Partitions
+# Format Partitions (specific to you)
 mkfs.ext4 -L nixos /dev/sda3
 mkswap -L swap /dev/sda2
 mkfs.fat -F 32 -n boot /dev/sda1
