@@ -9,13 +9,13 @@
 				createDirectories = true;
 				setSessionVariables = true; # Silence HM 26.05 default change warning
 
-			    desktop    = "${config.home.homeDirectory}/Desktop";
-			    documents  = "${config.home.homeDirectory}/Documents";
-			    download   = "${config.home.homeDirectory}/Downloads";
-			    music      = "${config.home.homeDirectory}/Music";
-			    pictures   = "${config.home.homeDirectory}/Pictures";
-			    videos     = "${config.home.homeDirectory}/Videos";
-			    templates  = "${config.home.homeDirectory}/Templates";
+			    desktop     = "${home.homeDirectory}/Desktop";
+			    documents   = "${home.homeDirectory}/Documents";
+			    download    = "${home.homeDirectory}/Downloads";
+			    music       = "${home.homeDirectory}/Music";
+			    pictures    = "${home.homeDirectory}/Pictures";
+			    videos      = "${home.homeDirectory}/Videos";
+			    templates   = "${home.homeDirectory}/Templates";
 			    publicShare = "${config.home.homeDirectory}/Public";
 			};
 
