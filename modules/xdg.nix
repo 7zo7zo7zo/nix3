@@ -16,7 +16,7 @@
 			    pictures    = "${home.homeDirectory}/Pictures";
 			    videos      = "${home.homeDirectory}/Videos";
 			    templates   = "${home.homeDirectory}/Templates";
-			    publicShare = "${config.home.homeDirectory}/Public";
+			    publicShare = "${home.homeDirectory}/Public";
 			};
 
 			terminal-exec = {
