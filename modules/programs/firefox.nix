@@ -36,15 +36,18 @@
 						installation_mode = "force_installed";
 						install_url = "https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi";
 					};
+					# SponsorBlock
 					"sponsorBlocker@ajay.app" = {
 						installation_mode = "normal_installed";
-						install_url = "https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi";
+						install_url = "https://addons.mozilla.org/firefox/downloads/latest/sponsorblock/latest.xpi";
 					};
-					"84601290-bec9-494a-b11c-1baa897a9683" = {
+					# Ctrl+Number to switch tabs
+					"{84601290-bec9-494a-b11c-1baa897a9683}" = {
 						installation_mode = "normal_installed";
 						install_url = "https://addons.mozilla.org/firefox/downloads/latest/ctrl-number-to-switch-tabs/latest.xpi";
 					};
-					"aecec67f-0d10-4fa7-b7c7-609a2db280cf" = {
+					# Violentmonkey
+					"{aecec67f-0d10-4fa7-b7c7-609a2db280cf}" = {
 						installation_mode = "normal_installed";
 						install_url = "https://addons.mozilla.org/firefox/downloads/latest/violentmonkey/latest.xpi";
 					};
