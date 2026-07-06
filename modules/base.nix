@@ -1,9 +1,8 @@
 { inputs, ... }:
 
 {
-	flake.aspects.base.nixos =
-		{ pkgs, ... }:
-		{
+	flake.aspects.base = {
+		nixos = { pkgs, ... }: {
 			# =========================================================================
 			# Bootloader
 			# =========================================================================
@@ -78,4 +77,11 @@
 			# Disable askpass
 			programs.ssh.enableAskPassword = false;
 		};
+
+		homeManager = {
+			home.shellAliases = {
+				wget = "wget --hsts-file=$XDG_DATA_HOME/wget-hsts";
+			};
+		};
+	};
 }
