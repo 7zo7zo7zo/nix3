@@ -6,8 +6,17 @@
 
 			userDirs = {
 				enable = true;
-				setSessionVariables = true;
 				createDirectories = true;
+				setSessionVariables = true; # Silence HM 26.05 default change warning
+
+			    desktop    = "${config.home.homeDirectory}/Desktop";
+			    documents  = "${config.home.homeDirectory}/Documents";
+			    download   = "${config.home.homeDirectory}/Downloads";
+			    music      = "${config.home.homeDirectory}/Music";
+			    pictures   = "${config.home.homeDirectory}/Pictures";
+			    videos     = "${config.home.homeDirectory}/Videos";
+			    templates  = "${config.home.homeDirectory}/Templates";
+			    publicShare = "${config.home.homeDirectory}/Public";
 			};
 
 			terminal-exec = {
