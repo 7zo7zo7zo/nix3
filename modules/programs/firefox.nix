@@ -36,6 +36,18 @@
 						installation_mode = "force_installed";
 						install_url = "https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi";
 					};
+					"sponsorBlocker@ajay.app" = {
+						installation_mode = "normal_installed";
+						install_url = "https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi";
+					};
+					"84601290-bec9-494a-b11c-1baa897a9683" = {
+						installation_mode = "normal_installed";
+						install_url = "https://addons.mozilla.org/firefox/downloads/latest/ctrl-number-to-switch-tabs/latest.xpi";
+					};
+					"aecec67f-0d10-4fa7-b7c7-609a2db280cf" = {
+						installation_mode = "normal_installed";
+						install_url = "https://addons.mozilla.org/firefox/downloads/latest/violentmonkey/latest.xpi";
+					};
 					# Push default configuration to uBlock Origin for all users.
 					# Enables our custom Shorts filter alongside standard filter lists.
 					"3rdparty" = {
