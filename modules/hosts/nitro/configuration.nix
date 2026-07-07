@@ -3,15 +3,16 @@
 {
 	flake = {
 		aspects = { aspects, ... }: {
-			host-lenovo = let
+			host-nitro = let
 				primaryUser = "steve";
 			in {
-				description = "Configuration for my Lenovo IdeaPad 130-15AST";
+				description = "Configuration for my Acer Nitro 5 AN515-54";
 
 				includes = with aspects; [
 					base
 					user
 					zsh
+					drives
 					dwm
 					audio
 					bluetooth
@@ -36,18 +37,10 @@
 						inputs.home-manager.nixosModules.home-manager
 					];
 
-					# Fix broken and duplicate Lid Switch and Power Button -- TODO: fix Power Button better (still shows up on evtest)
-					services.udev.extraRules = ''
-						ACTION=="add", SUBSYSTEM=="platform", KERNEL=="PNP0C0D:00", DRIVER=="acpi-button", \
-						RUN+="${pkgs.runtimeShell} -c 'echo PNP0C0D:00 > /sys/bus/platform/drivers/acpi-button/unbind && echo PNP0C0D:01 > /sys/bus/platform/drivers/acpi-button/bind'"
-
-						SUBSYSTEM=="input", KERNELS=="PNP0C0C:00", TAG-="power-switch"
-					'';
-
 					services.picom = {
 						enable = true;
-						backend = "xrender";
-						vSync = true;
+						backend = "glx";
+						vSync = false;
 
 						fade = false;
 						shadow = false;
@@ -58,7 +51,7 @@
 
 					environment.localBinInPath = true;
 
-					networking.hostName = "lenovo";
+					networking.hostName = "nitro";
 					system.stateVersion = "25.11";
 					inherit primaryUser;
 
@@ -67,7 +60,7 @@
 						useUserPackages = true;
 
 						users.${config.primaryUser} = {
-							imports = [ aspects.host-lenovo.modules.homeManager ];
+							imports = [ aspects.host-nitro.modules.homeManager ];
 						};
 					};
 				};
@@ -98,10 +91,10 @@
 			};
 		};
 
-		nixosConfigurations.lenovo = inputs.nixpkgs.lib.nixosSystem {
+		nixosConfigurations.nitro = inputs.nixpkgs.lib.nixosSystem {
 			system = "x86_64-linux";
 
-			modules = [ inputs.self.modules.nixos.host-lenovo ];
+			modules = [ inputs.self.modules.nixos.host-nitro ];
 		};
 	};
 }
