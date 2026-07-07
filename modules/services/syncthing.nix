@@ -14,8 +14,8 @@
 
 			settings = {
 				devices = {
-					"arch" = {
-						id = "WPHMAJJ-JDMRUZS-366RC5N-P4TR2ES-YXNDBXU-L7FB57I-2XWB6QP-ZBDGOQF";
+					"nitro" = {
+						id = "XVGBHF4-EDVRXW5-UTD2DKW-HXSEC3T-6HB5UAX-XEAKUHA-JDSEA6N-SZHKMQP";
 					};
 					"lenovo" = {
 						id = "5TTQ4I2-THG3OX2-XQ6KXTO-DF4DUQK-2FZNVG4-FSY7E35-AGMMPWL-KE3NNQD";
@@ -30,7 +30,7 @@
 						label = "Obsidian";
 						path = "/home/steve/Documents/Obsidian";
 						devices = [
-							"arch"
+							"nitro"
 							"lenovo"
 							"iPhone"
 						];

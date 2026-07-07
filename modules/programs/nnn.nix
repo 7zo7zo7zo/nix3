@@ -53,7 +53,7 @@
 				xdg.desktopEntries.nnn = {
 					name = "nnn";
 					genericName = "File Manager";
-					exec = "f %f";
+					exec = "xdg-terminal-exec -- f %f";
 					terminal = true;
 					noDisplay = true;
 					mimeType = [
