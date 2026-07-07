@@ -41,6 +41,11 @@
 						installation_mode = "normal_installed";
 						install_url = "https://addons.mozilla.org/firefox/downloads/latest/sponsorblock/latest.xpi";
 					};
+					# KeePassXC-Browser
+					"keepassxc-browser@keepassxc.org" = {
+						installation_mode = "normal_installed";
+						install_url = "https://addons.mozilla.org/firefox/downloads/latest/keepassxc-browser@keepassxc.org/latest.xpi";
+					};
 					# Ctrl+Number to switch tabs
 					"{84601290-bec9-494a-b11c-1baa897a9683}" = {
 						installation_mode = "normal_installed";
