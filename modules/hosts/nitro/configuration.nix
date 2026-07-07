@@ -19,6 +19,7 @@
 					printing	
 					xdg
 					nvim
+					passwords
 					st
 					firefox
 					obsidian
