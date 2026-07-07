@@ -52,7 +52,7 @@
 					environment.localBinInPath = true;
 
 					networking.hostName = "nitro";
-					system.stateVersion = "25.11";
+					system.stateVersion = "26.05";
 					inherit primaryUser;
 
 					home-manager = {
@@ -66,7 +66,7 @@
 				};
 
 				homeManager = { pkgs, ... }: {
-					home.stateVersion = "25.11";
+					home.stateVersion = "26.05";
 					inherit primaryUser;
 
 					home.packages = with pkgs; [
