@@ -107,6 +107,8 @@
             export _JAVA_AWT_WM_NONREPARENTING=1
 
 						dwmblocks &
+						# TODO: find permanent solution when I test with a TV
+						xrandr --auto
 					'';
 				};
 

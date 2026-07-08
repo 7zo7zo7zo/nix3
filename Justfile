@@ -1,6 +1,7 @@
 ROOT_DIR := `git rev-parse --show-toplevel`
+HOST := `hostname`
 
-switch HOST:
+switch:
 	sudo nixos-rebuild switch --flake {{ROOT_DIR}}#{{HOST}}
 
 gc:

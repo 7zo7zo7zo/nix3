@@ -33,8 +33,8 @@
 					minecraft
 					office
 					doom
-					#steam
-					#emulator
+					steam
+					emulator
 				];
 
 				nixos = {config, pkgs, ...}: {
@@ -43,21 +43,40 @@
 						inputs.home-manager.nixosModules.home-manager
 					];
 
-					hardware.graphics.enable = true;
-					services.xserver.videoDrivers = [ "modesetting" "nvidia" ];
-					hardware.nvidia.open = false;
 
-/*
-					hardware.nvidia.prime = {
-						offload = {
-							enable = true;
-							enableOffloadCmd = true;
-						};
+					# This makes /proc/driver/nvidia/gpus/0000:01:00.0/power have
+					# Runtime D3 status:          Enabled (coarse-grained)
+					# Seting it to 0x02 doesn't seem to work so finegrained is disabled below
+					# Hope this actually works
+					boot.kernelParams = [
+						"nvidia.NVreg_DynamicPowerManagement=0x01"
+					];
 
-						intelBusId = "PCI:0@0:2:0";
-						nvidiaBusId = "PCI:1@0:0:0";
+					hardware.graphics = {
+						enable = true;
 					};
-					*/
+
+					services.xserver.videoDrivers = [ "nvidia" ];
+
+					hardware.nvidia = {
+						modesetting.enable = true;
+						powerManagement.enable = true; # Needed for suspend to work
+						powerManagement.finegrained = false;
+						open = false;
+						nvidiaSettings = true;
+
+						package = config.boot.kernelPackages.nvidiaPackages.stable;
+
+						prime = {
+							offload = {
+								enable = true;
+								enableOffloadCmd = true;
+							};
+
+							intelBusId = "PCI:0:2:0";
+							nvidiaBusId = "PCI:1:0:0";
+						};
+					};
 
 					services.picom = {
 						enable = true;
