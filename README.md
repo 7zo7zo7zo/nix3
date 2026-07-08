@@ -20,6 +20,7 @@ lsblk
 # Format Partitions (specific to you)
 mkfs.ext4 -L nixos /dev/sda3
 mkswap -L swap /dev/sda2
+swapon /dev/disk/by-label/swap
 mkfs.fat -F 32 -n boot /dev/sda1
 
 # Mount Everything
@@ -43,8 +44,8 @@ ls -la /mnt/etc/nixos
 
 # Setup hardware configuration
 nixos-generate-config --root /mnt --show-hardware-config \
-  > /mnt/home/$NIXUSER/nixos-config/hosts/$HOST/_hardware-configuration.nix
-cat /mnt/home/$NIXUSER/nixos-config/hosts/$HOST/_hardware-configuration.nix
+  > /mnt/home/$NIXUSER/nixos-config/modules/hosts/$HOST/_hardware-configuration.nix
+cat /mnt/home/$NIXUSER/nixos-config/modules/hosts/$HOST/_hardware-configuration.nix
 
 # Install 
 nixos-install --flake /mnt/home/$NIXUSER/nixos-config#$HOST
