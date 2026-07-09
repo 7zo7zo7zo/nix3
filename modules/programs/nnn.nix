@@ -54,7 +54,7 @@
 					name = "nnn";
 					genericName = "File Manager";
 					exec = "xdg-terminal-exec -- f %f";
-					terminal = true;
+					terminal = false;
 					noDisplay = true;
 					mimeType = [
 						"inode/directory"
