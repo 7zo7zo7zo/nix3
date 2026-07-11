@@ -75,14 +75,11 @@
 
 				# Some programs need SUID wrappers, can be configured further or are
 				# started in user sessions.
-				/*
-				programs.mtr.enable = true;
-				programs.gnupg.agent = {
-					enable = true;
-					enableSSHSupport = true;
-				};
-				*/
-
+				# programs.mtr.enable = true;
+				# programs.gnupg.agent = {
+				#   enable = true;
+				#   enableSSHSupport = true;
+				# };
 			};
 
 			homeManager = { config, ... }: {
@@ -107,6 +104,7 @@
             export _JAVA_AWT_WM_NONREPARENTING=1
 
 						dwmblocks &
+						xwallpaper --center ~/nixos-config/wallpapers/light_by_zim2687_d6tq1a1.jpg
 						# TODO: find permanent solution when I test with a TV
 						xrandr --auto
 					'';

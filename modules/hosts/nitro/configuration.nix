@@ -44,12 +44,12 @@
 					];
 
 
-					# This makes /proc/driver/nvidia/gpus/0000:01:00.0/power have
-					# Runtime D3 status:          Enabled (coarse-grained)
-					# Seting it to 0x02 doesn't seem to work so finegrained is disabled below
-					# Hope this actually works
+					# cat /proc/driver/nvidia/gpus/0000:01:00.0/power
+					# Runtime D3 status:          Enabled (fine-grained)
 					boot.kernelParams = [
-						"nvidia.NVreg_DynamicPowerManagement=0x01"
+						"nvidia.NVreg_EnableGpuFirmware=0"
+						#"nvidia.NVreg_DynamicPowerManagement=0x02"
+						#"nvidia.NVreg_PreserveVideoMemoryAllocations=1"
 					];
 
 					hardware.graphics = {
@@ -60,8 +60,8 @@
 
 					hardware.nvidia = {
 						modesetting.enable = true;
-						powerManagement.enable = true; # Needed for suspend to work
-						powerManagement.finegrained = false;
+						powerManagement.enable = true; # Needed for suspend to work?
+						powerManagement.finegrained = true;
 						open = false;
 						nvidiaSettings = true;
 

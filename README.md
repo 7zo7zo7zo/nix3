@@ -52,3 +52,12 @@ nixos-install --flake /mnt/home/$NIXUSER/nixos-config#$HOST
 nixos-enter --root /mnt -c "passwd $NIXUSER"
 reboot
 ```
+
+## Wallpaper
+
+**Light** by **Zim2687**.
+
+Source: https://www.deviantart.com/zim2687/art/Light-412720633
+
+License: Creative Commons Attribution-NonCommercial-No Derivatives Works 3.0 License
+https://creativecommons.org/licenses/by-nc-nd/3.0/
