@@ -88,7 +88,7 @@
 				xsession = {
 					enable = true;
 					scriptPath = "${config.xdg.cacheHome}/X11/xsession"; # technically this should be a local path from $HOME
-					windowManager.command = "exec dwm";
+					windowManager.command = "while true; do dwm 2> ~/.dwm.log; done";
 					profileExtra = ''
 						# https://nixos.wiki/wiki/Using_X_without_a_Display_Manager
 						if test -z "$DBUS_SESSION_BUS_ADDRESS"; then
