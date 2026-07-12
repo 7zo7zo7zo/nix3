@@ -1,0 +1,26 @@
+#!/bin/sh
+set -eu
+
+# Set your dmenu flags
+#dmenu_flags="-i -vi -c -bw 3 -W 600 -l 30 -h 40 -F -fn 'JetBrainsMono Nerd Font:size=16' -p 'Projects:'"
+set -- -fn "JetBrains Mono Nerd Font:size=12" -p "Projects:"
+
+# Pick repo
+scripts="$(ls -1 "$HOME"/repos 2>/dev/null)"
+[ -n "$scripts" ] || exit 0
+session="$(printf '%s\n' $scripts | dmenu "$@")"
+[ -n "$session" ] || exit 0
+session_script="$HOME/repos/$session"
+
+# If session does not exist, run session creation script
+if ! tmux has-session -t "$session" 2>/dev/null; then
+	if [ ! -x "$session_script" ]; then
+		notify-send "No session script for '$session'"
+		exit 1
+	fi
+	"$session_script"
+	notify-send "Created tmux session '$session'"
+fi
+
+# Switch active clients to session
+exec tmux switch-client -t "$session" 2>/dev/null

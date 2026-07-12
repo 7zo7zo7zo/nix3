@@ -30,22 +30,24 @@ pairs.setup()
 
 require('nvim-highlight-colors').setup()
 
-local nnn_session = "nnn_picker_" .. vim.fn.getpid()
+--local nnn_session = "nnn_picker_" .. vim.fn.getpid()
 
 require("nnn").setup({
 	picker = {
-		cmd = "tmux new-session -s " .. nnn_session .. " nnn -a",
+		--cmd = "tmux new-session -s " .. nnn_session .. " nnn -a",
+		cmd = "nnn -a",
 		style = { border = "rounded" },
 		session = "shared",
 	},
-	offset = true,
+	--offset = true,
 	replace_netrw = "picker",
 })
-
+--[[
 vim.api.nvim_create_autocmd("VimLeavePre", {
 	callback = function()
 		vim.fn.system("tmux kill-session -t " .. nnn_session .. " 2>/dev/null")
 	end,
 })
+]]--
 
 vim.cmd.colorscheme('kanagawa')
