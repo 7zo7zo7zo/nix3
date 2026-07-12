@@ -1,7 +1,5 @@
 {
-	flake.aspects.passwords.homeManager = { pkgs, ... }: {
-		home.packages = with pkgs; [
-			keepassxc
-		];
+	flake.aspects.passwords.homeManager = {
+		programs.keepassxc.enable = true;
 	};
 }

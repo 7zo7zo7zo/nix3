@@ -35,6 +35,7 @@
 					doom
 					steam
 					emulator
+					direnv
 				];
 
 				nixos = {config, pkgs, ...}: {
