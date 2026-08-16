@@ -51,3 +51,15 @@ vim.api.nvim_create_autocmd("VimLeavePre", {
 ]]--
 
 vim.cmd.colorscheme('kanagawa')
+
+vim.lsp.config("ols", {
+  cmd = { "ols" },
+  filetypes = { "odin" },
+  root_markers = {
+    "ols.json",
+    "odin.mod",
+    ".git",
+  },
+})
+
+vim.lsp.enable("ols")

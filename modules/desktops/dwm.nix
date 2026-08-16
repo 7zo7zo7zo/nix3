@@ -3,7 +3,7 @@
 {
 	flake.aspects = { aspects, ... }: {
 		dwm = {
-			includes = with aspects; [ scripts dwmblocks ];
+			includes = with aspects; [ dwmblocks x11 ];
 
 			nixos = { pkgs, ... }: {
 				services = {
@@ -60,13 +60,6 @@
 				# Dependencies (pkgs)
 				environment.systemPackages = with pkgs; [
 					dmenu
-					xclip
-					brightnessctl
-					playerctl
-					xwallpaper
-					imagemagick
-					libnotify
-					xdotool
 				];
 
 				fonts.packages = with pkgs; [
@@ -83,8 +76,6 @@
 			};
 
 			homeManager = { config, ... }: {
-				my.scripts = [ "screenshot" ];
-
 				xsession = {
 					enable = true;
 					scriptPath = "${config.xdg.cacheHome}/X11/xsession"; # technically this should be a local path from $HOME
@@ -105,8 +96,7 @@
 
 						dwmblocks &
 						xwallpaper --center ~/nixos-config/wallpapers/light_by_zim2687_d6tq1a1.jpg
-						# TODO: find permanent solution when I test with a TV
-						xrandr --auto
+            autorandr -c
 					'';
 				};
 
